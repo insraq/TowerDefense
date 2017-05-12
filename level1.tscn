@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://level1.gd" type="Script" id=1]
+[ext_resource path="res://tileset.xml" type="TileSet" id=2]
+[ext_resource path="res://turret_holder.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Curve2D" id=1]
+
+bake_interval = 5.0
+_data = {
+"points": Vector2Array( 0, 0, 0, 0, 0, 512, 0, 0, 0, 0, 1408, 512, 0, 0, 0, 0, 1408, 1152 )
+}
+
+[node name="Level" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="TileMap" type="TileMap" parent="."]
+
+transform/pos = Vector2( -128, 0 )
+mode = 0
+tile_set = ExtResource( 2 )
+cell/size = Vector2( 128, 128 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 1, 5, 2, 5, 3, 5, 4, 5, 5, 5, 6, 5, 7, 5, 8, 5, 9, 5, 10, 5, 11, 5, 12, 5, 13, 5, 14, 5, 15, 5, 16, 5, 65537, 5, 65538, 5, 65539, 5, 65540, 5, 65541, 5, 65542, 5, 65543, 5, 65544, 5, 65545, 5, 65546, 5, 65547, 5, 65548, 5, 65549, 5, 65550, 5, 65551, 5, 65552, 5, 131073, 5, 131074, 5, 131075, 5, 131076, 5, 131077, 5, 131078, 5, 131079, 5, 131080, 5, 131081, 5, 131082, 5, 131083, 5, 131084, 5, 131085, 5, 131086, 5, 131087, 5, 131088, 5, 196609, 14, 196610, 14, 196611, 14, 196612, 14, 196613, 14, 196614, 14, 196615, 14, 196616, 14, 196617, 14, 196618, 14, 196619, 14, 196620, 3, 196621, 5, 196622, 5, 196623, 5, 196624, 5, 262145, 0, 262146, 0, 262147, 0, 262148, 0, 262149, 0, 262150, 0, 262151, 0, 262152, 0, 262153, 0, 262154, 0, 262155, 1, 262156, 4, 262157, 5, 262158, 5, 262159, 5, 262160, 5, 327681, 5, 327682, 5, 327683, 5, 327684, 5, 327685, 5, 327686, 5, 327687, 5, 327688, 5, 327689, 5, 327690, 5, 327691, 6, 327692, 4, 327693, 5, 327694, 5, 327695, 5, 327696, 5, 393217, 5, 393218, 5, 393219, 5, 393220, 5, 393221, 5, 393222, 5, 393223, 5, 393224, 5, 393225, 5, 393226, 5, 393227, 6, 393228, 4, 393229, 5, 393230, 5, 393231, 5, 393232, 5, 458753, 5, 458754, 5, 458755, 5, 458756, 5, 458757, 5, 458758, 5, 458759, 5, 458760, 5, 458761, 5, 458762, 5, 458763, 6, 458764, 4, 458765, 5, 458766, 5, 458767, 5, 458768, 5, 524289, 5, 524290, 5, 524291, 5, 524292, 5, 524293, 5, 524294, 5, 524295, 5, 524296, 5, 524297, 5, 524298, 5, 524299, 6, 524300, 4, 524301, 5, 524302, 5, 524303, 5, 524304, 5 )
+
+[node name="TurretHolder 2 2" parent="." groups=[
+"Turrets",
+] instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1600, 1088 )
+
+[node name="TurretHolder 6" parent="." groups=[
+"Turrets",
+] instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1216, 1088 )
+
+[node name="TurretHolder" parent="." groups=[
+"Turrets",
+] instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 832, 320 )
+
+[node name="TurretHolder 2" parent="." groups=[
+"Turrets",
+] instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 448, 704 )
+
+[node name="TurretHolder 3" parent="." groups=[
+"Turrets",
+] instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 576, 704 )
+
+[node name="TurretHolder 4" parent="." groups=[
+"Turrets",
+] instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 704, 704 )
+
+[node name="TurretHolder 5" parent="." groups=[
+"Turrets",
+] instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 832, 704 )
+
+[node name="Prebuilt3" parent="." groups=[
+"Turrets",
+"Prebuilt",
+] instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 704, 320 )
+
+[node name="Prebuilt2" parent="." groups=[
+"Turrets",
+"Prebuilt",
+] instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 576, 320 )
+
+[node name="Prebuilt1" parent="." groups=[
+"Turrets",
+"Prebuilt",
+] instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 448, 320 )
+
+[node name="Path2D" type="Path2D" parent="."]
+
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+transform/pos = Vector2( 0, 512 )
+offset = 0.0
+h_offset = 0.0
+v_offset = 0.0
+rotate = true
+cubic_interp = true
+loop = true
+lookahead = 4.0
+
+[node name="Timer" type="Timer" parent="."]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+
