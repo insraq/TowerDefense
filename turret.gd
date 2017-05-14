@@ -4,6 +4,7 @@ var target_angel
 var bullet_prefab = load("res://bullet.tscn")
 var fire_delay = 100
 var radius = 300
+var cost = 50
 var last_fire = OS.get_ticks_msec()
 onready var radius_node = get_node("Radius")
 
@@ -21,9 +22,13 @@ func get_radius():
 	return radius_node
 
 func hide_radius():
+	if (radius_node == null):
+		return
 	radius_node.hide()
 	
 func show_radius():
+	if (radius_node == null):
+		return
 	radius_node.set_scale(Vector2(radius / 500.0, radius / 500.0))
 	radius_node.show()
 

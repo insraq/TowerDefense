@@ -3,7 +3,7 @@
 [ext_resource path="res://turret.gd" type="Script" id=1]
 [ext_resource path="res://assets/towerDefense_tile180.png" type="Texture" id=2]
 [ext_resource path="res://assets/towerDefense_tile249.png" type="Texture" id=3]
-[ext_resource path="res://assets/source/PNG/Retina/towerDefense_tile272.png" type="Texture" id=4]
+[ext_resource path="res://assets/towerDefense_tile272.png" type="Texture" id=4]
 [ext_resource path="res://assets/radius.png" type="Texture" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
@@ -22,7 +22,6 @@ texture = ExtResource( 2 )
 
 [node name="Gun" type="Sprite" parent="."]
 
-editor/display_folded = true
 texture = ExtResource( 3 )
 offset = Vector2( 0, -24 )
 

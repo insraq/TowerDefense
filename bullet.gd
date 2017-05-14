@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-var speed = 2000
+var speed = 3000
+var hit = 1
 var direction
 
 func _ready():
