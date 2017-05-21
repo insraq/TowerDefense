@@ -9,7 +9,7 @@ var turret
 
 func _ready():
 	set_process_input(true)
-	
+	set_process(true)	
 	score_manager = get_tree().get_root().get_node("Level/ScoreManager")
 	if score_manager == null:
 		OS.alert("`Level/ScoreManager` required", "Score Manager is null")
@@ -22,25 +22,35 @@ func _input_event(viewport, event, shape_idx):
 func hide_radius():
 	if turret != null:
 		turret.hide_radius()
-			
-func on_click():
-	if has_node("holder"):
-		turret = turret_prefab.instance()
 		
-		if score_manager.money < turret.cost:
-			score_manager.highlight_money()
-			return
-			
-		get_tree().call_group(SceneTree.GROUP_CALL_REALTIME, "Turrets", "hide_radius")
-		score_manager.set_money(score_manager.money - turret.cost)
-		
-		turret.set_pos(get_node("holder").get_pos())
-		add_child(turret)
-		get_node("holder").queue_free()
+func _process(delta):
+	if turret != null:
+		return
+	if score_manager.selected_holder == self:
+		get_node("holder").hide()
+		get_node("holder_selected").show()
 	else:
-		print("Upgrade")
-		if turret.get_radius().is_visible():
-			turret.hide_radius()
+		get_node("holder").show()
+		get_node("holder_selected").hide()
+
+func construct(turret_to_build):
+	if turret != null:
+		return
+	turret = turret_to_build
+	turret.set_pos(get_node("holder").get_pos())
+	get_node("holder").hide()
+	get_node("holder_selected").hide()
+	add_child(turret)
+
+func on_click():
+	if turret == null:
+		get_tree().call_group(SceneTree.GROUP_CALL_REALTIME, "Turrets", "hide_radius")
+		if score_manager.selected_holder == self:
+			score_manager.selected_holder = null
 		else:
-			get_tree().call_group(SceneTree.GROUP_CALL_REALTIME, "Turrets", "hide_radius")
-			turret.show_radius()
+			score_manager.selected_holder = self
+	else:
+		var visible = turret.get_radius().is_visible()
+		get_tree().call_group(SceneTree.GROUP_CALL_REALTIME, "Turrets", "hide_radius")
+		if !visible:
+			turret.show_radius()	

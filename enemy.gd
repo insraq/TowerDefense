@@ -22,7 +22,7 @@ func _on_collision(body):
 		get_node("ExplodeAnimation").play("Explode")
 	get_node("Sound").play("Explode", true)
 	if health <= 0:
-		hide()
+		die()
 		score_manager.set_money(score_manager.money + value)
 
 func set_health(h):
@@ -35,9 +35,17 @@ func set_health(h):
 		sprite.set_texture(load("res://assets/towerDefense_tile246.png"))
 	elif health <= 15:
 		sprite.set_texture(load("res://assets/towerDefense_tile247.png"))
+	elif health <= 20:
+		sprite.set_texture(load("res://assets/towerDefense_tile248_1.png"))
+	elif health <= 30:
+		sprite.set_texture(load("res://assets/towerDefense_tile248_2.png"))
 	else:
 		sprite.set_texture(load("res://assets/towerDefense_tile248.png"))
 	
+
+func die():
+	hide()
+	self.remove_from_group("Enemies")
 
 func is_enemy():
 	return health > 0
@@ -52,7 +60,7 @@ func _process(delta):
 		OS.alert("`Path2DFollow/Enemy` is required", "Enemy parent is not Path2DFollow")
 		return
 	if parent.get_unit_offset() >= 1: # Enemy reaches the end
-		hide()
+		die()
 		queue_free()
 		parent.hide()
 		parent.queue_free()
