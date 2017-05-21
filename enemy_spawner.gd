@@ -14,7 +14,6 @@ func set_wave(wave):
 	
 func _process(delta):
 	if wave.size() == 0 && get_tree().get_nodes_in_group("Enemies").size() == 0:
-		get_tree().get_root().get_node("Level/SamplePlayer2D").play("done")
 		get_tree().get_root().get_node("Level/ScoreManager").complete()
 		get_tree().set_pause(true)
 	

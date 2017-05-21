@@ -51,7 +51,6 @@ samples/done = {
 
 [node name="Level" type="Node2D"]
 
-editor/display_folded = true
 script/script = ExtResource( 1 )
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -395,7 +394,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
+[node name="SamplePlayer2D" type="SamplePlayer2D" parent="ScoreManager"]
 
 params/volume_db = 10.0
 params/pitch_scale = 1.0

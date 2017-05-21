@@ -23,13 +23,14 @@ func set_selected_holder(holder):
 		get_node("HUD").show()
 		
 func complete():
+	get_node("SamplePlayer2D").play("done")
 	get_node("NextLevel").show()
 		
 func construct(target):
 	if selected_holder == null:
 		return
 	if money < target.cost:
-		get_tree().get_root().get_node("Level/SamplePlayer2D").play("coin")
+		get_node("SamplePlayer2D").play("coin")
 		return
 	self.money -= target.cost
 	var turret = target.duplicate()
